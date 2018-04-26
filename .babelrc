@@ -1,0 +1,15 @@
+// 新建.babelrc
+{
+  "presets": [
+    ["es2015", {"modules": false}],
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-runtime",
+    [
+    "external-helpers",
+    "transform-flow-strip-types",
+    "syntax-flow",
+    "transform-es2015-modules-commonjs"
+  ]
+}
