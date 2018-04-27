@@ -1,79 +1,53 @@
-import san, {DataTypes} from "san";
+
+
+import san from 'san';
+import person from './component/course_2_1/person.js';
+import list from './component/course_2_2/list.js';
 import "./index.css";
 
-var MyApp = san.defineComponent({
-    template: `
-    <div class="san-from">
-
-        <div>{{hello}}</div>
-        
-        <div class="san-form-info">
-            <div>
-                <label>姓名(String)</label>
-                <span>{{ info.name }}</span>
-                
-            </div>
-            <div>
-                <label>年龄(Number)</label>
-                <span>{{ info.age }}</span>
-            </div>
-            <div>
-                <label>简介(String)</label>
-                <span>{{ info.des }}</span>
-            </div>
-        </div>
-        <div class="san-form-input">
-            <div>
-                <label>姓名：</label>
-                <input maxlength="20" type="text" value="{= info.name =}">
-                <span class="{{info.name.length>0?'validate_success':'validate_error'}}">{{ validate.validate_name }}</span>
-            </div>
-            <div>
-                <label>年龄：</label>
-                <input maxlength="3" type="number" value="{= info.age =}">
-                <span class="{{info.age>0?'validate_success':'validate_error'}}">{{ validate.validate_age }}</span>
-            </div>
-            <div>
-                <label>简介：</label>
-                <input maxlength="100" type="text" value="{= info.des =}">
-                <span class="{{info.des.length?'validate_success':'validate_error'}}">{{ validate.validate_des }}</span>
-            </div>
-        </div>
-        <div>
-            <label> 信息： </label><button type="button"  on-click="cleanFrom">清除信息</button>
-        </div>
-    </div>
-    `,
-    //数据校验
-    dataTypes: {
-        'info':DataTypes.shape({
-            'name': DataTypes.string,
-            'age': DataTypes.number,
-            'des': DataTypes.string
-        })
+var app = san.defineComponent({
+    components: {
+        'ui-course-2-1': person,
+        'ui-course-2-2': list,
     },
-    //数据初始化
+    // template
+    template:
+    `
+        <div class="app">
+            <div class="san-select-course">
+                <div s-for="item in  course" on-click="toggle(item.key)">
+                    {{item.name}}
+                </div>
+            </div>
+            <div class="san-course-content">
+                <ui-course-2-1 class="{{active_course=='2-1'?'':'hidden'}}"></ui-course-2-1>
+                <ui-course-2-2 class="{{active_course=='2-2'?'':'hidden'}}"></ui-course-2-2>
+            </div>
+        </div>        
+    
+    `,
     initData: function () {
         return {
-            'hello':'hello world!',
-            'info':{},
-            'validate':{
-                'validate_name':'请输入名字',
-                'validate_age':'请输入正确年龄',
-                'validate_des':'请输入简介',
-                'validate_success':'正确',
-            }
+            course: [
+                {
+                    key:"2-1",
+                    name: '2.1 数据操作',
+                },
+                {
+                    key:"2-2",
+                    name: '2.2 条件和循环',
+                },
+            ],
+            active_course:'2-1'
         };
+
     },
-    filters: {
-        
-    },
-    cleanFrom: function () {
-        this.data.set('info',{});
-        
+    toggle:function (key) {
+        console.log(key)
+        this.data.set('active_course',key);
     }
+    
 });
 
-
-var myApp = new MyApp();
-myApp.attach(document.body);
+var app =  new app();
+app.attach(document.body);
