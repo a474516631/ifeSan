@@ -6,37 +6,37 @@ var MyApp = san.defineComponent({
     <div class="san-from">
 
         <div>{{hello}}</div>
-        <div>
+        
+        <div class="san-form-info">
             <div>
-                <label>姓名：</label>
-                <input type="text" value="{= info.name =}">
-                <span class="{{info.name.length>0?'validate_success':'validate_error'}}">{{ validate.validate_name }}</span>
-            </div>
-            <div>
-                <label>年龄：</label>
-                <input type="number" value="{= info.age =}">
-                <span class="{{info.age>0?'validate_success':'validate_error'}}">{{ validate.validate_age }}</span>
-            </div>
-            <div>
-                <label>简介：</label>
-                <input type="text" value="{= info.des =}">
-                <span class="{{info.des.length?'validate_success':'validate_error'}}">{{ validate.validate_des }}</span>
-            </div>
-        </div>
-        <div>
-            <div>
-                <label>姓名：</label>
+                <label>姓名(String)</label>
                 <span>{{ info.name }}</span>
                 
             </div>
             <div>
-                <label>年龄：</label>
+                <label>年龄(Number)</label>
                 <span>{{ info.age }}</span>
             </div>
             <div>
-                <label>简介：</label>
+                <label>简介(String)</label>
                 <span>{{ info.des }}</span>
-                
+            </div>
+        </div>
+        <div class="san-form-input">
+            <div>
+                <label>姓名：</label>
+                <input maxlength="20" type="text" value="{= info.name =}">
+                <span class="{{info.name.length>0?'validate_success':'validate_error'}}">{{ validate.validate_name }}</span>
+            </div>
+            <div>
+                <label>年龄：</label>
+                <input maxlength="3" type="number" value="{= info.age =}">
+                <span class="{{info.age>0?'validate_success':'validate_error'}}">{{ validate.validate_age }}</span>
+            </div>
+            <div>
+                <label>简介：</label>
+                <input maxlength="100" type="text" value="{= info.des =}">
+                <span class="{{info.des.length?'validate_success':'validate_error'}}">{{ validate.validate_des }}</span>
             </div>
         </div>
         <div>
