@@ -33,7 +33,7 @@ const config = {
     title: 'Production'
    }),
    new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
+   new webpack.NamedModulesPlugin(),
   ],
    devServer:{
          //我们在这里对webpack-dev-server进行配置

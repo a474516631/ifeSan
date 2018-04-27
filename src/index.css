@@ -1,0 +1,29 @@
+html{
+	font-size: 10px;
+}
+.validate_error{
+	color: red;
+	font-size: 1.4rem;
+}
+.validate_success{
+	color: green;
+	font-size: 1.4rem;
+	display: none;
+}
+.san-button{
+	display: inline-block;
+	width: 10px;
+	font-size: 1.4rem;
+	border:1px solid #000;
+	border-radius: .5rem;
+	text-align: center;
+	cursor: pointer;
+}
+.san-from{
+	width: 40rem;
+	height: 20rem;
+	border: 1px solid #000;
+	margin: 0 auto;
+}
+
+
