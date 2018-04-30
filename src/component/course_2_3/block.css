@@ -1,0 +1,30 @@
+html{
+	font-size: 10px;
+}
+.block-bg-blue{
+    background: blue;
+}
+
+.block-bg-red{
+    background: red;
+}
+.block{
+    width: 100px;
+    height: 100px;
+    
+    margin:0 auto;
+    margin-top: 12px;
+}
+
+.block-bg-green{
+    background: green;
+}
+
+.block-bg-orange{
+    background: orange;
+}
+
+.block-bg-pink{
+    background: pink;
+}
+  
